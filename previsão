@@ -22,6 +22,28 @@ y_pred = model.predict(x_test)
 print(f'MAE: {mean_absolute_error(y_test, y_pred):.2f}')
 print(f'R²: {r2_score(y_test, y_pred):.2f}')
 
+plt.figure(figsize=(12, 5))
+
+plt.subplot(1, 2, 1)
+plt.scatter(df['horas_estudo'], df['nota_final'], color='blue')
+plt.xlabel('Horas de Estudo')
+plt.ylabel('Nota Final')
+plt.title('Horas de Estudo vs Nota Final')
+
+# Relacionando número de revisões com nota
+plt.subplot(1, 2, 2)
+plt.scatter(df['num_revisoes'], df['nota_final'], color='green')
+plt.xlabel('Número de Revisões')
+plt.ylabel('Nota Final')
+plt.title('Revisões vs Nota Final')
+
+plt.tight_layout()
+plt.grid(True)
+plt.show()
+
+
+
+
 nota = model.predict([[7.5,5]])
 
 print(f'A nota deste aluno será de: {nota[0]:.2f}')
